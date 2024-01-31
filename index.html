@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="assets/styles/style.css">
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+</head>
+
+<body>
+
+
+
+<script>
+  let tomato_red = "hsl(4, 100%, 67%)";
+
+  function check(id) {
+    let val = document.getElementById('email').value
+    if (val && val.includes("@")) {
+      document.querySelector(".sign-up").style.display = "none";
+      document.querySelector(".message").style.display = "block";
+      document.getElementById("mes-text").innerHTML = "A confirmation email has been sent to <strong>"+val+"</strong>.Please open it and click the button inside to confirm your subscription."
+    }
+    else {
+      document.getElementById("email").style.backgroundColor = tomato_red;
+    }
+  }
+  function goBack(id) {
+      document.querySelector(".sign-up").style.display = "flex";
+      document.querySelector(".message").style.display = "none";
+      val = "";
+  }
+</script>
+
+
+
+
+  <!-- Sign-up form start -->
+<div class="sign-up">
+
+  <picture id="main-picture">
+    <source media="(max-width: 1099px)" srcset="/assets/images/illustration-sign-up-mobile.svg">
+    <source media="(min-width: 1100px)" srcset="/assets/images/illustration-sign-up-desktop.svg">
+    <img src="/assets/images/illustration-sign-up-desktop.svg" alt="ilustration" class="s-u-right">
+  </picture>
+
+  <div class="s-u-left">
+
+  <h1 class="h1">Stay updated!</h1>
+
+  <p>Join 60,000+ product managers receiving monthly updates on:</p>
+  <ul>
+    <li>Product discovery and building what matters</li>
+    <li>Measuring to ensure updates are a success</li>
+    <li>And much more!</li>
+  </ul>
+
+  <form id="form">
+    <label for="email">Email address</label><br>
+
+    <input type="email" name="email" id="email" placeholder="example@email.com">
+  </form>
+
+
+  <button id="btn" onclick="check('email')">Subscribe to monthly newsletter</button>
+
+  </div>
+
+</div>
+  <!-- Sign-up form end -->
+
+<div class="message">
+
+  <img src="/assets/images/icon-success.svg" alt="success">
+
+  <h2 class="mes-header">Thanks for subscribing!</h2>
+
+  <p id="mes-text">
+  </p>
+
+  <button id="dismiss" onclick="goBack('0')">Dismiss message</button>
+
+
+</div>
+
+
+
+</body>
+</html>
